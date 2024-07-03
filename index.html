@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Emilys+Candy&family=Single+Day&display=swap" rel="stylesheet">
+
+    <title>Deserts</title>
+</head>
+<body>
+<div class="main"> 
+    <h1 class="title-text">Deserts</h1>
+    <div w3-include-html="text.txt"></div>
+    <div class="container">
+        <div class="category" id="category1">
+            <p>Icecream</p>
+            <p><input type="submit" data="01" value="Vanilla" id="vanilla"></p>
+            <p><input type="submit" data="01" value="Chocolate" id="chocolate"></p>
+            <p><input type="submit" data="01" value="Strawberry" id="strawberry"></p>
+        </div>
+
+        <div class="category" id="category2">
+            <p>Waffles</p>
+            <p><input type="submit" data="02" value="Pure" id="pure"></p>
+            <p><input type="submit" data="02" value="Sugar" id="sugar"></p>
+            <p><input type="submit" data="02" value="Syrup" id="syrup"></p>
+        </div>
+
+        <div class="category" id="category3">
+            <p>Other</p>
+            <p><input type="submit" data="03" value="Coffee" id="coffee"></p>
+            <p><input type="submit" data="03" value="Fruit" id="fruit"></p>
+            <p><input type="submit" data="03" value="Tea" id="tea"></p>
+        </div>
+
+
+    </div>
+
+    <iframe class="info" src="text.txt" width="80%" height="400px" ></iframe>
+
+</div>
+
+
+
+    <script>
+        
+        
+
+        var allInputs = $("input")
+        for (var input of allInputs){
+            $(input).click(function(event){
+                var id = $(event.currentTarget).attr("id")
+                var category = $(event.currentTarget).attr("data")
+                console.log(id)
+                $(".info").attr("src", `category_${category}/${id}/${id}.txt`)
+            })
+        }
+
+        
+    </script>
+</body>
+</html>
